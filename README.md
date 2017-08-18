@@ -5,7 +5,7 @@ Test Lib
 Download
 --------
 
-Download [the latest JAR][2] or grab via Maven:
+via Maven:
 ```xml
 <dependency>
   <groupId>com.daver1419.testinglib</groupId>
@@ -17,3 +17,4 @@ or Gradle:
 ```groovy
 compile 'com.daver1419.testinglib:testinglib:0.0.2'
 ```
+Test Lib requires at minimum Java 7 or Android 4.1.
