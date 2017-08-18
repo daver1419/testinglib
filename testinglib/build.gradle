@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+    bintrayRepo = 'Test'
+    bintrayName = 'com.daver1419.testinglib'
+
+    publishedGroupId = 'com.daver1419.testinglib'
+    libraryName = 'TestingLib'
+    artifact = 'testinglib'
+
+    libraryDescription = 'A Testing Log library for on Android'
+
+    siteUrl = 'https://github.com/daver1419/testinglib'
+    gitUrl = 'https://github.com/daver1419/testinglib.git'
+
+    libraryVersion = '0.0.2'
+
+    developerId = 'daver'
+    developerName = 'David Tolchisnky'
+    developerEmail = 'daver1419@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "26.0.0"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+}
+
+apply from: 'https://raw.githubusercontent.com/daver1419/jcenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/daver1419/jcenter/master/bintrayv1.gradle'
